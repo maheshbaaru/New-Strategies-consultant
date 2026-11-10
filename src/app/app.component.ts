@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   readonly whatsappNumber = '919959651194';
+  readonly currentYear = new Date().getFullYear();
   submitted = false;
 
   enquiry = {
