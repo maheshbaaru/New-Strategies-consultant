@@ -1,0 +1,144 @@
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span>Practical expertise. Thoughtful execution. Lasting value.</span>
+    <a href="mailto:barumahesh232@gmail.com">barumahesh232@gmail.com</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="New Strategies Consultant home">
+      <span class="brand-mark">NS</span>
+      <span class="brand-name">NEW STRATEGIES<small>CONSULTANT</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#enquiry">Project Enquiry</a>
+      <a class="nav-cta" href="#enquiry">Let's Talk ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR PARTNER IN PROGRESS</p>
+        <h1>Build better.<br><span>Move smarter.</span></h1>
+        <p class="hero-lead">Construction insight and technology expertise to help turn your ideas into practical outcomes.</p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#services">Explore our services ↗</a>
+          <a class="button button-outline" href="#enquiry">Discuss your project</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Ideas to impact">
+        <div class="art-frame">
+          <span>NEW STRATEGIES CONSULTANT</span>
+          <strong>Ideas <i>→</i><br>Impact</strong>
+          <small>CONSTRUCTION · TECHNOLOGY · SOLUTIONS</small>
+        </div>
+        <div class="art-stamp">THINK CLEAR.<br>BUILD WITH PURPOSE.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <p class="eyebrow dark">WHAT WE DO</p>
+      <h2>Expertise that turns plans into progress.</h2>
+      <p class="section-intro">One partner for practical construction guidance and business-focused software solutions.</p>
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="service-number">01 / CONSTRUCTION</span>
+          <div class="service-icon">⌂</div>
+          <h3>Construction Consulting</h3>
+          <p>Practical guidance for construction and development decisions, project coordination and planning support.</p>
+          <a href="#enquiry" (click)="enquiry.service = 'Construction Consulting'">Enquire about construction ↗</a>
+        </article>
+        <article class="service-card">
+          <span class="service-number">02 / TECHNOLOGY</span>
+          <div class="service-icon">⌘</div>
+          <h3>Software Solutions Development</h3>
+          <p>Custom web applications and business software designed to solve real problems and simplify workflows.</p>
+          <a href="#enquiry" (click)="enquiry.service = 'Software Solutions Development'">Enquire about software ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <div class="container about-grid">
+      <div class="about-panel">
+        <p class="eyebrow">ABOUT NSC</p>
+        <h2>Good strategy makes the next step clearer.</h2>
+        <p>We connect practical thinking with hands-on execution to help turn complex requirements into achievable work.</p>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow dark">WHO WE ARE</p>
+        <h2>A thoughtful partner for what comes next.</h2>
+        <p>New Strategies Consultant works across construction consulting and software solutions development. We listen, understand your requirements and focus on delivering work that creates lasting value.</p>
+        <ul>
+          <li><strong>Clarity first</strong><span>Understand the real requirement before recommending a path.</span></li>
+          <li><strong>Practical thinking</strong><span>Solutions designed for real-world needs.</span></li>
+          <li><strong>Quality delivery</strong><span>Reliable execution and clear communication.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="enquiry-section" id="enquiry">
+    <div class="container enquiry-grid">
+      <div class="enquiry-copy">
+        <p class="eyebrow">LET'S BUILD SOMETHING BETTER</p>
+        <h2>Tell us about your project.</h2>
+        <p>Fill in the form. Your enquiry will open in WhatsApp as a ready-to-send message to our team.</p>
+        <div class="contact-line"><span>WhatsApp</span><a href="https://wa.me/919959651194" target="_blank" rel="noopener">+91 99596 51194 ↗</a></div>
+        <div class="contact-line"><span>Email</span><a href="mailto:barumahesh232@gmail.com">barumahesh232@gmail.com</a></div>
+      </div>
+
+      <form class="enquiry-form" #projectForm="ngForm" (ngSubmit)="sendEnquiry()">
+        <div class="form-heading">
+          <span>PROJECT ENQUIRY</span>
+          <small>Fields marked * are required</small>
+        </div>
+        <label for="name">Your name *</label>
+        <input id="name" name="name" type="text" [(ngModel)]="enquiry.name" placeholder="Enter your full name" required minlength="2" autocomplete="name">
+
+        <div class="form-row">
+          <div>
+            <label for="phone">Mobile number *</label>
+            <input id="phone" name="phone" type="tel" [(ngModel)]="enquiry.phone" placeholder="10-digit mobile number" required pattern="[6-9][0-9]{9}" maxlength="10" inputmode="numeric" autocomplete="tel">
+          </div>
+          <div>
+            <label for="service">Service required *</label>
+            <select id="service" name="service" [(ngModel)]="enquiry.service" required>
+              <option value="" disabled>Select a service</option>
+              <option>Construction Consulting</option>
+              <option>Software Solutions Development</option>
+              <option>Other / Not sure</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="location">Project location</label>
+        <input id="location" name="location" type="text" [(ngModel)]="enquiry.location" placeholder="City / Area (optional)">
+
+        <label for="details">Tell us about your project *</label>
+        <textarea id="details" name="details" [(ngModel)]="enquiry.details" placeholder="Briefly describe what you need..." rows="4" required minlength="10"></textarea>
+
+        <button class="button button-whatsapp" type="submit" [disabled]="projectForm.invalid">
+          <span aria-hidden="true">◉</span> Send Enquiry on WhatsApp
+        </button>
+        <p class="form-note">Your details are added to a WhatsApp message. You can review it and press Send in WhatsApp.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© {{ currentYear }} <strong>New Strategies Consultant.</strong> All rights reserved.</span>
+    <span>Construction Consulting · Software Solutions Development</span>
+  </div>
+</footer>
